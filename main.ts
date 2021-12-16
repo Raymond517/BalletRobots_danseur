@@ -1,6 +1,8 @@
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 0) {
         maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 255)
+    } else if (false) {
+    	
     } else {
         if (receivedNumber == 1) {
             TourneDroite(90)
@@ -49,5 +51,34 @@ function EnAvant (Duree: number, Vitesse: number) {
 function Stop () {
     maqueen.motorStop(maqueen.Motors.All)
 }
+/**
+ */
 basic.showIcon(IconNames.StickFigure)
 radio.setGroup(1)
+radio.sendNumber(0)
+EnAvant(2000, 255)
+radio.sendNumber(1)
+TourneDroite(80)
+radio.sendNumber(0)
+EnAvant(2000, 255)
+radio.sendNumber(3)
+TourneGauche(80)
+radio.sendNumber(2)
+EnArriere(2000, 255)
+radio.sendNumber(0)
+EnAvant(2000, 255)
+radio.sendNumber(3)
+TourneGauche(80)
+radio.sendNumber(3)
+TourneGauche(80)
+radio.sendNumber(3)
+TourneGauche(80)
+radio.sendNumber(3)
+TourneGauche(80)
+radio.sendNumber(0)
+EnAvant(2000, 255)
+Stop()
+basic.forever(function () {
+    music.setBuiltInSpeakerEnabled(true)
+    music.playMelody("C5 G B A F A C5 B ", 121)
+})
